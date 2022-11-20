@@ -67,7 +67,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useGetNotesQuery, useAddNewNoteMutation, useUpdateUserMutation, useDeleteNoteMutation } = notesApiSlice
+export const { useGetNotesQuery, useAddNewNoteMutation, useUpdateNoteMutation, useDeleteNoteMutation } = notesApiSlice
 
 export const selectNotesResult = notesApiSlice.endpoints.getNotes.select()
 

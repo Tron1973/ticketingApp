@@ -32,7 +32,7 @@ const NewNoteForm = ({ users }) => {
   const onTextChanged = e => setText(e.target.value)
   const onUserIdChanged = e => setUserId(e.target.value)
 
-  const canSave = [title, text, userid].every(Boolean) && !isLoading
+  const canSave = [title, text, userId].every(Boolean) && !isLoading
 
   const onSaveNoteClicked = async (e) => {
     e.preventDefault()

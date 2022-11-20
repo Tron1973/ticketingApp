@@ -41,14 +41,6 @@ const EditNoteForm = ({ note, users }) => {
   const onCompletedChanged = e => setCompleted(prev => !prev)
   const onUserIdChanged = e => setUserId(e.target.value)
 
-  const onRolesChanged = e => {
-      const values = Array.from(
-          e.target.selectedOptions,
-          (option) => option.value
-      )
-      setRoles(values)
-  }
-
   const canSave = [title, text, userId].every(Boolean) && !isLoading
 
     const onSaveNoteClicked = async (e) => {
