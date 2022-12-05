@@ -25,14 +25,12 @@ const createNewUser = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: 'All fields are required' })
   }
 
-  // Check for duplicate
   const duplicate = await User.findOne({ username }).lean().exec()
 
   if (duplicate) {
     return res.status(409).json({ message: 'Duplicate username' })
   }
 
-  // Hash password
   const hashedPassword = await bcrypt.hash(password, 10) // salt rounds
 
   const userObject = { username, "password": hashedPassword, roles }
@@ -64,7 +62,6 @@ const updateUser = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: 'User not found' })
   }
 
-  // Check for duplicate
   const duplicate = await User.findOne({ username }).lean().exec()
   // Allow updates to the original user
   if (duplicate && duplicate?._id.toString() !== id) {
