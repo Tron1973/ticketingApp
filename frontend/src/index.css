@@ -53,6 +53,12 @@
   visibility: hidden;
 }
 
+.logout-text {
+  font-size: .3em;
+  margin-right: 4rem;
+  
+}
+
 body {
   font-family: 'Orbitron',sans-serif;
   min-height: 100vh;
@@ -115,6 +121,10 @@ a:focus-visible {
   margin-top: 1em;
 }
 
+.welcome {
+  padding: 2rem;
+}
+
 .welcome a::before {
   content: "➜ "
 }
@@ -142,6 +152,10 @@ a:focus-visible {
   gap: 0.5em;
 }
 
+.dash-header__title {
+  padding: 2rem;
+}
+
 .dash-container {
   padding: 0.75em 0.5em 0.5em;
   flex-grow: 1;
@@ -153,7 +167,7 @@ a:focus-visible {
   bottom: 0;
   z-index: 1;
   background-color: var(--BGCOLOR);
-  padding: 0.5em;
+  padding: 2rem;
   border-top: 1px solid var(--BORDER-COLOR);
   display: flex;
   flex-flow: row nowrap;
