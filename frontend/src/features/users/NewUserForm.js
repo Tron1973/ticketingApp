@@ -69,8 +69,8 @@ const NewUserForm = () => {
     })
 
     const errClass = isError ? "errmsg" : "offscreen"
-    const validUserClass = !validUsername ? 'form__input--incomplete' : ''
-    const validPwdClass = !validPassword ? 'form__input--incomplete' : ''
+    const validUserClass = username && !validUsername ? 'form__input--incomplete' : ''
+    const validPwdClass = password && !validPassword ? 'form__input--incomplete' : ''
     const validRolesClass = !Boolean(roles.length) ? 'form__input--incomplete' : ''
 
 
@@ -100,7 +100,7 @@ const NewUserForm = () => {
                 />
 
                 <label className="form__label" htmlFor="password">
-                    Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
+                    Password: <span className="nowrap">[4-12 characters]</span></label>
                 <input
                     className={`form__input ${validPwdClass}`}
                     id="password"

@@ -77,7 +77,7 @@ const EditUserForm = ({ user }) => {
 
   const options = Object.values(ROLES).map(role => {
       return (
-          <option key={role} value={role}>{role}</option >
+          <option key={role} value={role}> {role}</option >
       )
   })
 
@@ -89,12 +89,11 @@ const EditUserForm = ({ user }) => {
   }
 
   const errClass = (isError || isDelError) ? "errmsg" : "offscreen"
-  const validUserClass = !validUsername ? 'form__input--incomplete' : ''
+  const validUserClass = username && !validUsername ? 'form__input--incomplete' : ''
   const validPwdClass = password && !validPassword ? 'form__input--incomplete' : ''
   const validRolesClass = !Boolean(roles.length) ? 'form__input--incomplete' : ''
 
   const errContent = (error?.data?.message || delerror?.data?.message) ?? ''
-
 
   const content = (
       <>
@@ -134,7 +133,7 @@ const EditUserForm = ({ user }) => {
               />
 
               <label className="form__label" htmlFor="password">
-                  Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
+                  Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 characters]</span></label>
               <input
                   className={`form__input ${validPwdClass}`}
                   id="password"
