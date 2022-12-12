@@ -69,8 +69,8 @@ const NewUserForm = () => {
     })
 
     const errClass = isError ? "errmsg" : "offscreen"
-    const validUserClass = username && !validUsername ? 'form__input--incomplete' : ''
-    const validPwdClass = password && !validPassword ? 'form__input--incomplete' : ''
+    const validUserClass = !validUsername ? 'form__input--incomplete' : ''
+    const validPwdClass = !validPassword ? 'form__input--incomplete' : ''
     const validRolesClass = !Boolean(roles.length) ? 'form__input--incomplete' : ''
 
 
@@ -81,11 +81,7 @@ const NewUserForm = () => {
             <form className="form" onSubmit={onSaveUserClicked}>
                 <div className="form__title-row">
                     <h2>New User</h2>
-                    <div className="form__action-buttons">
-                        <button className="icon-button" title="Save" disabled={!canSave}>
-                            <FontAwesomeIcon icon={faSave} />
-                        </button>
-                    </div>
+                    
                 </div>
                 <label className="form__label" htmlFor="username">
                     Username: <span className="nowrap">[3-20 letters]</span></label>
@@ -123,7 +119,11 @@ const NewUserForm = () => {
                 >
                     {options}
                 </select>
-
+                <div className="form__action-buttons">
+                        <button className="icon-button" title="Save">
+                            <FontAwesomeIcon icon={faSave} />
+                        </button>
+                    </div>
             </form>
         </>
     )
