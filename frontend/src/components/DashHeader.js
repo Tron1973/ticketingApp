@@ -25,10 +25,6 @@ const DashHeader = () => {
   const onNewUserClicked = () => navigate('dash/users/new')
   const onNotesClicked = () => navigate('dash/notes')
   const onUsersClicked = () => navigate('dash/users')
- 
-  if (isLoading) return <p>Logging out...</p>
-
-  if (isError) return <p>Error: {error.data?.message}</p>
 
   let dashClass = null
     if (!DASH_REGEX.test(pathname) && !NOTES_REGEX.test(pathname) && !USERS_REGEX.test(pathname)) {
@@ -117,6 +113,8 @@ const DashHeader = () => {
     }
 
   const content = (
+    <>
+      <p className={errClass}>{error?.data?.message}</p>
       <header className="dash-header">
           <div className={`dash-header__container ${dashClass}`}>
               <Link to="/dash">
@@ -127,6 +125,7 @@ const DashHeader = () => {
                 </nav>
           </div>
       </header>
+    </>
   )
 
     return content
