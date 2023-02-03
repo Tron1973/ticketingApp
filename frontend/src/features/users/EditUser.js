@@ -3,7 +3,7 @@ import EditUserForm from './EditUserForm'
 import { useGetUsersQuery } from './usersApiSlice'
 import PulseLoader from 'react-spinners/PulseLoader'
 
-const EditUser = () => {
+const EditUser = (data) => {
   const { id } = useParams()
 
   const { user } = useGetUsersQuery('usersList', {
